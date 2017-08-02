@@ -11,16 +11,19 @@
     // Get my Facebook API key from Local Storage
     var token = localStorage.getItem("token");
 
-    $.ajax({
-        url: "https://api.yelp.com/v3/businesses/search?location=boston",
-        dataType: 'json',
-        // data: { // alt: 'json-in-script' // },
-        success: function(data, status) {
-            return console.log("The returned data", data);
-        },
-        beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization', 'Bearer ' + token); }
+    $("#makeCall").click(function() {
+        $.ajax({
+            url: "https://api.yelp.com/v3/businesses/search?location=boston",
+            dataType: 'json',
+            // data: { // alt: 'json-in-script' // },
+            success: function(data, status) {
+                return console.log("The returned data", data);
+            },
+            beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization', 'Bearer ' + token); }
+        });
     });
     </script>
+    <button id="makeCall">Call API</button>
 </body>
 
 </html>
