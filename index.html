@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>API - Yelp Sandbox</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    This is my index page.
+    <script>
+    // Get my Facebook API key from Local Storage
+    var token = localStorage.getItem("token");
+
+    $.ajax({
+        url: "https://api.yelp.com/v3/businesses/search?location=boston",
+        dataType: 'json',
+        // data: { // alt: 'json-in-script' // },
+        success: function(data, status) {
+            return console.log("The returned data", data);
+        },
+        beforeSend: function(xhr, settings) { xhr.setRequestHeader('Authorization', 'Bearer ' + token); }
+    });
+    </script>
+</body>
+
+</html>
