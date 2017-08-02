@@ -17,7 +17,7 @@
             $.ajax({
                 url: "https://api.yelp.com/v3/businesses/search?location=boston",
                 type: 'GET',
-                dataType: 'jsonp',
+                dataType: 'json',
                 // data: { // alt: 'json-in-script' // },
                 success: function(data, status) {
                     return console.log("The returned data", data);
