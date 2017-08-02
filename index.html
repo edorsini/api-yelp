@@ -12,6 +12,7 @@
 
         // Get my Facebook API key from Local Storage
         var token = localStorage.getItem("token");
+        console.log("my token is: " + token);
 
         $("#makeCall").click(function() {
             $.ajax({
