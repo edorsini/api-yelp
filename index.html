@@ -16,6 +16,7 @@
         $("#makeCall").click(function() {
             $.ajax({
                 url: "https://api.yelp.com/v3/businesses/search?location=boston",
+                type: 'GET',
                 dataType: 'jsonp',
                 // data: { // alt: 'json-in-script' // },
                 success: function(data, status) {
