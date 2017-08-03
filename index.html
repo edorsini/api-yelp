@@ -6,20 +6,17 @@
 </head>
 
 <body>
-    This is my index page.
+    This is quick demo for how to query the Yelp Fusion API from the front-end. This is using BuilderLabs server-side script to send the query to the API using cors-anywhere (https://www.npmjs.com/package/cors-anywhere ; a NodeJS proxy which adds CORS headers to the request).
     <script>
+    // Documentation: https://github.com/builderLabs/Yelp-Fusion-JavaScript
     $(function() {
-
         // Get my Facebook API key from Local Storage
         var token = localStorage.getItem("yelpToken");
         console.log("my token is: " + token);
 
         $("#makeCall").click(function() {
             $.ajax({
-                url: "https://api.yelp.com/v3/businesses/search?location=boston",
-                //type: 'GET',
-                //dataType: 'json',
-                // data: { // alt: 'json-in-script' // },
+                url: "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=boston",
                 success: function(data, status) {
                     return console.log("The returned data", data);
                 },
@@ -29,7 +26,9 @@
 
     });
     </script>
-    <button id="makeCall">Call API</button>
+    <div>
+        <button id="makeCall">Call API</button>
+    </div>
 </body>
 
 </html>
